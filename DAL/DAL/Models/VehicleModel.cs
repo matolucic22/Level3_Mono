@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Models
 {
-    class VehicleModel
+    public class VehicleModel
     {
         public Guid Id { get; set; }
         public Guid VehicleMakeId { get; set; }
