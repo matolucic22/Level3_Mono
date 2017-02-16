@@ -1,4 +1,5 @@
 ﻿using DAL.Models;
+using Project.DAL.Common;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -9,17 +10,21 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class VehicleContext:DbContext
+    public class VehicleContext:DbContext,IVehicleContext
     {
         public VehicleContext() : base("VehicleContext")
         {
         }
-          public DbSet<VehicleModel> VehicleModels { get; set; }
-          public DbSet<VehicleMake> VehicleMakes { get; set; }
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+         public DbSet<VehicleModel> VehicleModels { get; set; }
+         public DbSet<VehicleMake> VehicleMakes { get; set; }
+       protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
+     /*   public new DbSet<T> Set<T>() where T : class// potpuni sličko kontekstu. Nešto kao instanca za svaku bazu koju smo kreirali
+        {
+            return base.Set<T>();
+        }*/
 
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project.DAL.Common
 {
-    interface IVehicleModel
+   public interface IVehicleModel
     {
         Guid Id { get; set; }
         Guid VehicleMakeId { get; set; }
