@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project.Reporsitory.Common
+namespace Project.Service.Common
 {
-    public interface IVehicleModelGenericReporsitory
+    public interface IVehicleModelService
     {
         Task<IEnumerable<IVehicleModelDomainModel>> GetAllAsync<IVehicleModelDomainModel>();
         Task<IVehicleModelDomainModel> GetAsync<IVehicleModelDomainModel>(Guid id);

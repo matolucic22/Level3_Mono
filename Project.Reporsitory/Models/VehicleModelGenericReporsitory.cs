@@ -35,12 +35,16 @@ namespace Project.Reporsitory.Models
 
         public async Task<IVehicleModelDomainModel> GetAsync<IVehicleModelDomainModel>(Guid id)
         {
+
             return Mapper.Map<IVehicleModelDomainModel>(await _reporsitory.GetAsync<IVehicleModel>(id));
         }
+
 
         public async Task<int> UpdateAsync<IVehicleModelDomainModel>(IVehicleModelDomainModel updated)
         {
             return await _reporsitory.UpdateAsync(Mapper.Map<IVehicleModel>(updated));
         }
+
+       
     }
 }

@@ -46,7 +46,7 @@ namespace Project.Reporsitory.Models
 
         public async Task<int> UpdateAsync<IVehicleMakeDomainModel>(IVehicleMakeDomainModel updated)
         {
-            return await _reporsitory.UpdateAsync(Mapper.Map<VehicleMake>(updated));
+            return await _reporsitory.UpdateAsync(Mapper.Map<IVehicleMake>(updated));
         }
 
     }

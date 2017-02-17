@@ -11,12 +11,20 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using DAL;
 using DAL.Models;
+using Project.Service;
+using Project.Reporsitory.Common;
+using Project.Service.Common;
 
 namespace Project.MVC.WebAPI.Controllers
 {
     public class VehicleMakeController : ApiController
     {
         private VehicleContext db = new VehicleContext();
+        IVehicleMakeService _IVehicleMakeService;
+        public VehicleMakeController(IVehicleMakeService IVehicleMakeService)
+        {
+            this._IVehicleMakeService = IVehicleMakeService;
+        }
 
         // GET: api/VehicleMake
         public IQueryable<VehicleMake> GetVehicleMakes()
@@ -28,17 +36,26 @@ namespace Project.MVC.WebAPI.Controllers
         [ResponseType(typeof(VehicleMake))]
         public async Task<IHttpActionResult> GetVehicleMake(Guid id)
         {
-            VehicleMake vehicleMake = await db.VehicleMakes.FindAsync(id);
-            if (vehicleMake == null)
+            
+
+            if(_IVehicleMakeService == null)
             {
                 return NotFound();
             }
 
-            return Ok(vehicleMake);
+            return Ok(_IVehicleMakeService);
+
+            /* VehicleMake vehicleMake = await db.VehicleMakes.FindAsync(id);
+             if (vehicleMake == null)
+             {
+                 return NotFound();
+             }
+
+             return Ok(vehicleMake);*/
         }
 
         // PUT: api/VehicleMake/5
-        [ResponseType(typeof(void))]
+        [ResponseType(typeof(void))]//update
         public async Task<IHttpActionResult> PutVehicleMake(Guid id, VehicleMake vehicleMake)
         {
             if (!ModelState.IsValid)
@@ -72,8 +89,8 @@ namespace Project.MVC.WebAPI.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/VehicleMake
-        [ResponseType(typeof(VehicleMake))]
+        // POST: api/VehicleMake    
+        [ResponseType(typeof(VehicleMake))]//add
         public async Task<IHttpActionResult> PostVehicleMake(VehicleMake vehicleMake)
         {
             if (!ModelState.IsValid)
