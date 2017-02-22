@@ -8,6 +8,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using AutoMapper;
 using Project.MVC.WebAPI.App_Start;
+using Newtonsoft.Json;
 
 namespace Project.MVC.WebAPI
 {
@@ -15,12 +16,18 @@ namespace Project.MVC.WebAPI
     {
         protected void Application_Start()
         {
+            Mapper.Initialize(cfg =>
+            cfg.AddProfiles(new[] {
+                            typeof(Project.Common.MappingConfig ),
+                            typeof(Project.MVC.WebAPI.AutoMapper.MappingConfig)
+                })
+            );
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            AutoMapperConfig.RegisterMappings();
+            GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.Re‌​ferenceLoopHandling = ReferenceLoopHandling.Ignore;
         }
     }
 }

@@ -13,7 +13,7 @@ namespace DAL
          {
              var VehicleMakes = new List<VehicleMake>
              {
-                 new VehicleMake {Name="Skoda", Abrv="Skoda"}
+                 new VehicleMake {Id = Guid.NewGuid() ,Name="Skoda", Abrv="Skoda"}
 
              };
 
@@ -22,7 +22,7 @@ namespace DAL
 
              var VehicleModels = new List<VehicleModel>
              {
-                 new VehicleModel { Name="Bla", Abrv="BBB" }
+                 new VehicleModel {Id = Guid.NewGuid() , Name="Bla", Abrv="BBB" }
 
              };
              VehicleModels.ForEach(v => context.VehicleModels.Add(v));

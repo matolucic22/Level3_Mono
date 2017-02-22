@@ -10,6 +10,8 @@ namespace Project.MVC.WebAPI.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
+    using System.Linq;
+    using System.Web.Http;
 
     public static class NinjectWebCommon 
     {
@@ -39,13 +41,20 @@ namespace Project.MVC.WebAPI.App_Start
         /// <returns>The created kernel.</returns>
         private static IKernel CreateKernel()
         {
-            var kernel = new StandardKernel();
+            var settings = new NinjectSettings();
+            settings.LoadExtensions = true;
+            settings.ExtensionSearchPatterns = settings.ExtensionSearchPatterns.Union(new string[] { "Project.*.dll" }).ToArray();
+            var kernel = new StandardKernel(settings);
             try
             {
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
                 RegisterServices(kernel);
+
+                GlobalConfiguration.Configuration.DependencyResolver = new Ninject.Web.WebApi.NinjectDependencyResolver(kernel);
+
+
                 return kernel;
             }
             catch

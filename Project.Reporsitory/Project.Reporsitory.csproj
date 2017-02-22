@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DIModule.cs" />
     <Compile Include="Models\VehicleMakeGenericReporsitory.cs" />
     <Compile Include="Models\VehicleModelGenericReporsitory.cs" />
     <Compile Include="Reporsitory.cs" />
@@ -67,10 +68,6 @@
     <ProjectReference Include="..\DAL\DAL\Project.DAL.csproj">
       <Project>{a3846063-bc2b-4fe6-a58f-09ba0f0ddd39}</Project>
       <Name>Project.DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DAL\Project.MVC.Tests.WebAPI.Tests\Project.MVC.Tests.WebAPI.Tests.csproj">
-      <Project>{9d80b395-7f36-42d1-98af-d27adf89ab44}</Project>
-      <Name>Project.MVC.Tests.WebAPI.Tests</Name>
     </ProjectReference>
     <ProjectReference Include="..\Project.DAL.Common\Project.DAL.Common.csproj">
       <Project>{e3b379bd-5acf-423d-aa89-d1c97208580b}</Project>
@@ -83,10 +80,6 @@
     <ProjectReference Include="..\Project.Model\Project.Model.csproj">
       <Project>{a9e4d573-deb7-49df-a987-5c74bf1fef99}</Project>
       <Name>Project.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Project.MVC.WebAPI\Project.MVC.WebAPI.csproj">
-      <Project>{e00e39cf-7cde-4685-a2c2-e65f44028e91}</Project>
-      <Name>Project.MVC.WebAPI</Name>
     </ProjectReference>
     <ProjectReference Include="..\Project.Reporsitory.Common\Project.Reporsitory.Common.csproj">
       <Project>{4bd00da1-3224-489a-9c26-6d8ee58cb415}</Project>

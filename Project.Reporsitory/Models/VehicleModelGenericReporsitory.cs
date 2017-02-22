@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Project.Reporsitory.Models
 {
-    class VehicleModelGenericReporsitory : IVehicleModelGenericReporsitory
+    public class VehicleModelGenericReporsitory : IVehicleModelGenericReporsitory
     {
         private Reporsitory _reporsitory;
         private VehicleModelGenericReporsitory(Reporsitory reporsitory)

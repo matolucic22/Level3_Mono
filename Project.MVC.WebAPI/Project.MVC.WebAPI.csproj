@@ -101,6 +101,10 @@
       <HintPath>..\DAL\packages\Ninject.MVC5.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Ninject.Web.WebApi, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\DAL\packages\Ninject.Web.WebApi.3.2.4.0\lib\net45-full\Ninject.Web.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -214,10 +218,10 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="AutoMapper\MappingConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\VehicleMakeController.cs" />
-    <Compile Include="Controllers\VehicleModelController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -289,21 +293,21 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DAL\DAL\Project.DAL.csproj">
-      <Project>{a3846063-bc2b-4fe6-a58f-09ba0f0ddd39}</Project>
-      <Name>Project.DAL</Name>
+    <ProjectReference Include="..\DAL\Project.Common\Project.Common.csproj">
+      <Project>{02b27f0a-4445-443d-9fcc-486f957cc34a}</Project>
+      <Name>Project.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\Project.DependencyResolver\Project.DependencyResolver.csproj">
+      <Project>{926b4dc1-77fa-4d50-934a-9e0c575ab2ba}</Project>
+      <Name>Project.DependencyResolver</Name>
     </ProjectReference>
     <ProjectReference Include="..\Project.Model.Common\Project.Model.Common.csproj">
       <Project>{FF804096-B33C-429F-AE41-49DD67945437}</Project>
       <Name>Project.Model.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Project.Model\Project.Model.csproj">
-      <Project>{A9E4D573-DEB7-49DF-A987-5C74BF1FEF99}</Project>
+      <Project>{a9e4d573-deb7-49df-a987-5c74bf1fef99}</Project>
       <Name>Project.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Project.Reporsitory.Common\Project.Reporsitory.Common.csproj">
-      <Project>{4BD00DA1-3224-489A-9C26-6D8EE58CB415}</Project>
-      <Name>Project.Reporsitory.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Project.Service.Common\Project.Service.Common.csproj">
       <Project>{576CCBED-58E0-4297-A361-FE82BA072418}</Project>

@@ -11,42 +11,44 @@ using DAL.Models;
 
 namespace Project.Reporsitory.Models
 {
-    class VehicleMakeGenericReporsitory : IVehicleMakeGenericReporsitory
+    public class VehicleMakeGenericReporsitory : IVehicleMakeGenericReporsitory
     {
         
-        private IReporsitory _reporsitory;
+        protected IReporsitory Reporsitory { get; set; }
 
     
 
-        public VehicleMakeGenericReporsitory(Reporsitory repo)//dozvoljen pristup bazi podatka dependency injection
+       public VehicleMakeGenericReporsitory(IReporsitory reporsitory)//dozvoljen pristup bazi podatka dependency injection
         {
-            _reporsitory = repo;
+            Reporsitory = reporsitory;
         }
 
 
         public async Task<int> AddAsync<IVehicleMakeDomainModel>(IVehicleMakeDomainModel addObj)
         {
-            return await _reporsitory.AddAsync(Mapper.Map<IVehicleMake>(addObj));
+            return await Reporsitory.AddAsync(Mapper.Map<IVehicleMake>(addObj));
         }
 
         public async Task<int> DeleteAsync<IVehicleMakeDomainModel>(Guid id)
         {
-            return await _reporsitory.DeleteAsync<IVehicleMake>(id);
+            return await Reporsitory.DeleteAsync<IVehicleMake>(id);
+            
         }
 
         public async Task<IEnumerable<IVehicleMakeDomainModel>> GetAllAsync<IVehicleMakeDomainModel>()
         {
-            return Mapper.Map <IEnumerable<IVehicleMakeDomainModel>>(await _reporsitory.GetAllAsync<IVehicleMake>());
+            var x = Mapper.Map<IEnumerable<IVehicleMakeDomainModel>>(await Reporsitory.GetAllAsync<VehicleMake>());
+            return x;
         }
 
         public async Task<IVehicleMakeDomainModel> GetAsync<IVehicleMakeDomainModel>(Guid id)
         {
-            return Mapper.Map<IVehicleMakeDomainModel>(await _reporsitory.GetAsync<IVehicleMake>(id));
+            return Mapper.Map<IVehicleMakeDomainModel>(await Reporsitory.GetAsync<IVehicleMake>(id));
         }
 
         public async Task<int> UpdateAsync<IVehicleMakeDomainModel>(IVehicleMakeDomainModel updated)
         {
-            return await _reporsitory.UpdateAsync(Mapper.Map<IVehicleMake>(updated));
+            return await Reporsitory.UpdateAsync(Mapper.Map<IVehicleMake>(updated));
         }
 
     }
