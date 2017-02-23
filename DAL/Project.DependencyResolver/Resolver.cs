@@ -21,6 +21,7 @@ namespace Project.DependencyResolver
     {
         public override void Load()
         {
+            
             Bind<IVehicleMakeService>().To<VehicleMakeService>();
             Bind<IVehicleModelService>().To<VehicleModelService>();
 
@@ -30,6 +31,8 @@ namespace Project.DependencyResolver
             Bind<IUnitOfWork>().To<UnitOfWork>();
 
             Bind<IVehicleContext>().To<VehicleContext>();
+
+          
         }
     }
 }

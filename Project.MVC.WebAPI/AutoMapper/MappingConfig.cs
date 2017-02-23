@@ -26,6 +26,8 @@ namespace Project.MVC.WebAPI.AutoMapper
             CreateMap<VehicleModelDomainModel, IVehicleModelDomainModel>().ReverseMap();
             //CreateMap<IVehicleModelDomain, IVehicleModelView>().ReverseMap();
             CreateMap<IVehicleModelDomainModel, VehicleModelViewModel>().ReverseMap();
+
+            
         }
     }
 }

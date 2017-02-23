@@ -29,9 +29,9 @@ namespace Project.Reporsitory.Models
             return await Reporsitory.AddAsync(Mapper.Map<IVehicleMake>(addObj));
         }
 
-        public async Task<int> DeleteAsync<IVehicleMakeDomainModel>(Guid id)
+        public async Task<int> DeleteAsync<IVehicleMakeDomainModel>(Guid Id)
         {
-            return await Reporsitory.DeleteAsync<IVehicleMake>(id);
+            return await Reporsitory.DeleteAsync<IVehicleMake>(Id);
             
         }
 
@@ -41,9 +41,9 @@ namespace Project.Reporsitory.Models
             return x;
         }
 
-        public async Task<IVehicleMakeDomainModel> GetAsync<IVehicleMakeDomainModel>(Guid id)
+        public async Task<IVehicleMakeDomainModel> GetAsync<IVehicleMakeDomainModel>(Guid Id)
         {
-            return Mapper.Map<IVehicleMakeDomainModel>(await Reporsitory.GetAsync<IVehicleMake>(id));
+            return Mapper.Map<IVehicleMakeDomainModel>(await Reporsitory.GetAsync<VehicleMake>(Id));
         }
 
         public async Task<int> UpdateAsync<IVehicleMakeDomainModel>(IVehicleMakeDomainModel updated)

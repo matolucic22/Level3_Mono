@@ -15,10 +15,10 @@ namespace Project.Reporsitory.Common
        IQueryable<T> Table { get; }*/
 
         Task<IEnumerable<T>> GetAllAsync<T>() where T:class;
-        Task<T> GetAsync<T>(Guid id) where T : class;
+        Task<T> GetAsync<T>(Guid Id) where T : class;
         Task<int> AddAsync<T>(T addObj) where T : class;
         Task<int> UpdateAsync<T>(T updated) where T : class;
-        Task<int> DeleteAsync<T>(Guid id) where T : class;
+        Task<int> DeleteAsync<T>(Guid Id) where T : class;
 
     }
 }

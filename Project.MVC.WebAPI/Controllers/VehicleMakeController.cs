@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Project.Model.Common;
 using Project.MVC.WebAPI.ViewModels;
+using Project.MVC.WebAPI.AutoMapper;
 using Project.Service.Common;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,7 @@ namespace Project.MVC.WebAPI.Controllers
 
         [HttpGet]
         [Route("getall")]
-        public async Task<HttpResponseMessage> GetAll()
+        public async Task<HttpResponseMessage> GetAllVehMake()
         {
             try
             {
@@ -39,7 +40,7 @@ namespace Project.MVC.WebAPI.Controllers
 
         [HttpGet]
         [Route("get")]
-        public async Task<HttpResponseMessage> Get(Guid Id)
+        public async Task<HttpResponseMessage> GetVehMake(Guid Id)
         {
             try
             {
@@ -49,6 +50,22 @@ namespace Project.MVC.WebAPI.Controllers
             catch(Exception e)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, e);
+            }
+        }
+
+        [HttpPost]
+        [Route("add")]
+        public async Task<HttpResponseMessage> AddVehMake(VehicleMakeViewModel AddObj)
+        {
+            try
+            {
+                AddObj.Id = Guid.NewGuid();
+                var response =await VehicleMakeService.AddAsync(Mapper.Map<IVehicleMakeDomainModel>(AddObj));
+                return Request.CreateResponse(HttpStatusCode.OK, response);
+            }
+            catch(Exception e)
+            {
+               return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, e);
             }
         }
 

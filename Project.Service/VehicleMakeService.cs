@@ -22,9 +22,9 @@ namespace Project.Service
             return await VehicleMakeGenericReporsitory.AddAsync(addObj);
         }
 
-        public async Task<int> DeleteAsync<IVehicleMakeDomainModel>(Guid id)
+        public async Task<int> DeleteAsync<IVehicleMakeDomainModel>(Guid Id)
         {
-            return await VehicleMakeGenericReporsitory.DeleteAsync<IVehicleMakeDomainModel>(id);
+            return await VehicleMakeGenericReporsitory.DeleteAsync<IVehicleMakeDomainModel>(Id);
         }
 
         public async Task<IEnumerable<IVehicleMakeDomainModel>> GetAllAsync<IVehicleMakeDomainModel>()
@@ -32,9 +32,9 @@ namespace Project.Service
             return await VehicleMakeGenericReporsitory.GetAllAsync<IVehicleMakeDomainModel>();
         }
 
-        public async Task<IVehicleMakeDomainModel> GetAsync<IVehicleMakeDomainModel>(Guid id)
+        public async Task<IVehicleMakeDomainModel> GetAsync<IVehicleMakeDomainModel>(Guid Id)
         {
-            return await VehicleMakeGenericReporsitory.GetAsync<IVehicleMakeDomainModel>(id);
+            return await VehicleMakeGenericReporsitory.GetAsync<IVehicleMakeDomainModel>(Id);
         }
 
         public async Task<int> UpdateAsync<IVehicleMakeDomainModel>(IVehicleMakeDomainModel updated)

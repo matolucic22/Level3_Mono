@@ -32,15 +32,15 @@ namespace Project.Reporsitory
             return response;
         }
 
-        public async Task<T> GetAsync<T>(Guid id) where T : class
+        public async Task<T> GetAsync<T>(Guid Id) where T : class
         {
-            var obj = Context.Set<T>().FindAsync(id);
+            var obj = Context.Set<T>().FindAsync(Id);
             return await obj;
         }
 
-        public async Task<int> DeleteAsync<T>(Guid id) where T : class
+        public async Task<int> DeleteAsync<T>(Guid Id) where T : class
         {
-            T entity = await GetAsync<T>(id);
+            T entity = await GetAsync<T>(Id);
             Context.Set<T>().Remove(entity);
             return await Context.SaveChangesAsync();
             
