@@ -26,12 +26,12 @@ namespace Project.Reporsitory.Models
 
         public async Task<int> AddAsync<IVehicleMakeDomainModel>(IVehicleMakeDomainModel addObj)
         {
-            return await Reporsitory.AddAsync(Mapper.Map<IVehicleMake>(addObj));
+            return await Reporsitory.AddAsync(Mapper.Map<VehicleMake>(addObj));
         }
 
         public async Task<int> DeleteAsync<IVehicleMakeDomainModel>(Guid Id)
         {
-            return await Reporsitory.DeleteAsync<IVehicleMake>(Id);
+            return await Reporsitory.DeleteAsync<VehicleMake>(Id);
             
         }
 
@@ -48,7 +48,7 @@ namespace Project.Reporsitory.Models
 
         public async Task<int> UpdateAsync<IVehicleMakeDomainModel>(IVehicleMakeDomainModel updated)
         {
-            return await Reporsitory.UpdateAsync(Mapper.Map<IVehicleMake>(updated));
+            return await Reporsitory.UpdateAsync(Mapper.Map<VehicleMake>(updated));
         }
 
     }

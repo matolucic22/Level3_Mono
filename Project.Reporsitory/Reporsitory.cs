@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 
 namespace Project.Reporsitory
 {
@@ -43,12 +44,11 @@ namespace Project.Reporsitory
             T entity = await GetAsync<T>(Id);
             Context.Set<T>().Remove(entity);
             return await Context.SaveChangesAsync();
-            
         }
 
         public async Task<int> UpdateAsync<T>(T updated) where T : class
         {
-            Context.Entry(updated).State = EntityState.Modified;
+            Context.Set<T>().AddOrUpdate<T>(updated);
             return await Context.SaveChangesAsync();
         }
     }

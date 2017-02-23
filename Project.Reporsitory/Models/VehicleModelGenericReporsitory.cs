@@ -19,30 +19,30 @@ namespace Project.Reporsitory.Models
         }
         public async Task<int> AddAsync<IVehicleModelDomainModel>(IVehicleModelDomainModel addObj)
         {
-            return await _reporsitory.AddAsync(Mapper.Map<IVehicleModel>(addObj));
+            return await _reporsitory.AddAsync(Mapper.Map<VehicleModel>(addObj));
         }
 
         public async Task<int> DeleteAsync<IVehicleModelDomainModel>(Guid id)
         {
-            return await _reporsitory.DeleteAsync<IVehicleModel>(id);
+            return await _reporsitory.DeleteAsync<VehicleModel>(id);
         }
 
         public async Task<IEnumerable<IVehicleModelDomainModel>> GetAllAsync<IVehicleModelDomainModel>()
         {
-            return Mapper.Map<IEnumerable<IVehicleModelDomainModel>>(await _reporsitory.GetAllAsync<IVehicleModel>());
+            return Mapper.Map<IEnumerable<IVehicleModelDomainModel>>(await _reporsitory.GetAllAsync<VehicleModel>());
 
         }
 
         public async Task<IVehicleModelDomainModel> GetAsync<IVehicleModelDomainModel>(Guid id)
         {
 
-            return Mapper.Map<IVehicleModelDomainModel>(await _reporsitory.GetAsync<IVehicleModel>(id));
+            return Mapper.Map<IVehicleModelDomainModel>(await _reporsitory.GetAsync<VehicleModel>(id));
         }
 
 
         public async Task<int> UpdateAsync<IVehicleModelDomainModel>(IVehicleModelDomainModel updated)
         {
-            return await _reporsitory.UpdateAsync(Mapper.Map<IVehicleModel>(updated));
+            return await _reporsitory.UpdateAsync(Mapper.Map<VehicleModel>(updated));
         }
 
        

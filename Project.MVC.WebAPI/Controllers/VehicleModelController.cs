@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Project.Model.Common;
 using Project.MVC.WebAPI.ViewModels;
-using Project.MVC.WebAPI.AutoMapper;
 using Project.Service.Common;
 using System;
 using System.Collections.Generic;
@@ -13,23 +12,23 @@ using System.Web.Http;
 
 namespace Project.MVC.WebAPI.Controllers
 {
-    [RoutePrefix("api/VehicleMake")]
-    public class VehicleMakeController : ApiController
+    [RoutePrefix("api/VehicleModel")]
+    public class VehicleModelController : ApiController
     {
-        protected IVehicleMakeService VehicleMakeService { get; set; }
+        protected IVehicleModelService VehicleModelService { get; set; }
 
-        public VehicleMakeController(IVehicleMakeService vehicleMakeService)
+        public VehicleModelController(IVehicleModelService vehicleModelService)
         {
-            this.VehicleMakeService = vehicleMakeService;
+            this.VehicleModelService = vehicleModelService;
         }
 
         [HttpGet]
         [Route("getall")]
-        public async Task<HttpResponseMessage> GetAllVehMake()
+        public async Task<HttpResponseMessage> GetAllVehModel()
         {
             try
             {
-                var response = Mapper.Map<IEnumerable<VehicleMakeViewModel>>(await VehicleMakeService.GetAllAsync<IVehicleMakeDomainModel>());
+                var response = Mapper.Map<IEnumerable<VehicleModelViewModel>>(await VehicleModelService.GetAllAsync<IVehicleModelDomainModel>());
                 return Request.CreateResponse(HttpStatusCode.OK, response);
             }
             catch (Exception e)
@@ -40,11 +39,11 @@ namespace Project.MVC.WebAPI.Controllers
 
         [HttpGet]
         [Route("get")]
-        public async Task<HttpResponseMessage> GetVehMake(Guid Id)
+        public async Task<HttpResponseMessage> GetVehModel(Guid Id)
         {
             try
             {
-                var response = Mapper.Map<VehicleMakeViewModel>(await VehicleMakeService.GetAsync<IVehicleMakeDomainModel>(Id));
+                var response = Mapper.Map<VehicleMakeViewModel>(await VehicleModelService.GetAsync<IVehicleMakeDomainModel>(Id));
                 return Request.CreateResponse(HttpStatusCode.OK, response);
             }
             catch (Exception e)
@@ -60,7 +59,7 @@ namespace Project.MVC.WebAPI.Controllers
             try
             {
                 AddObj.Id = Guid.NewGuid();
-                var response = await VehicleMakeService.AddAsync(Mapper.Map<IVehicleMakeDomainModel>(AddObj));
+                var response = await VehicleModelService.AddAsync(Mapper.Map<IVehicleMakeDomainModel>(AddObj));
                 return Request.CreateResponse(HttpStatusCode.OK, response);
             }
             catch (Exception e)
@@ -75,7 +74,7 @@ namespace Project.MVC.WebAPI.Controllers
         {
             try
             {
-                VehicleMakeViewModel find = Mapper.Map<VehicleMakeViewModel>(await VehicleMakeService.GetAsync<IVehicleMakeDomainModel>(Id));
+                VehicleMakeViewModel find = Mapper.Map<VehicleMakeViewModel>(await VehicleModelService.GetAsync<IVehicleMakeDomainModel>(Id));
 
                 if (AddObj.Name == null || AddObj.Abrv == null)
                 {
@@ -86,7 +85,7 @@ namespace Project.MVC.WebAPI.Controllers
                     find.Name = AddObj.Name;
                     find.Abrv = AddObj.Abrv;
                 }
-                var response = await VehicleMakeService.UpdateAsync(Mapper.Map<IVehicleMakeDomainModel>(AddObj));
+                var response = await VehicleModelService.UpdateAsync(Mapper.Map<IVehicleMakeDomainModel>(AddObj));
                 return Request.CreateResponse(HttpStatusCode.OK, response);
             }
             catch (Exception e)
@@ -101,15 +100,14 @@ namespace Project.MVC.WebAPI.Controllers
         {
             try
             {
-                var response = await VehicleMakeService.DeleteAsync<IVehicleMakeDomainModel>(Id);
+                var response = await VehicleModelService.DeleteAsync<IVehicleMakeDomainModel>(Id);
                 return Request.CreateResponse(HttpStatusCode.OK, response);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, e);
             }
         }
 
     }
-
 }
