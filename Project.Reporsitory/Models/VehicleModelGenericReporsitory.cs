@@ -12,8 +12,8 @@ namespace Project.Reporsitory.Models
 {
     public class VehicleModelGenericReporsitory : IVehicleModelGenericReporsitory
     {
-        private Reporsitory _reporsitory;
-        private VehicleModelGenericReporsitory(Reporsitory reporsitory)
+        protected Reporsitory _reporsitory { get; set; }
+        public VehicleModelGenericReporsitory(Reporsitory reporsitory)
         {
             _reporsitory = reporsitory;
         }
@@ -29,7 +29,8 @@ namespace Project.Reporsitory.Models
 
         public async Task<IEnumerable<IVehicleModelDomainModel>> GetAllAsync<IVehicleModelDomainModel>()
         {
-            return Mapper.Map<IEnumerable<IVehicleModelDomainModel>>(await _reporsitory.GetAllAsync<VehicleModel>());
+            var response = Mapper.Map<IEnumerable<IVehicleModelDomainModel>>(await _reporsitory.GetAllAsync<VehicleModel>());
+            return response;
 
         }
 

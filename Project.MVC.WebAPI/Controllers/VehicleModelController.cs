@@ -43,7 +43,7 @@ namespace Project.MVC.WebAPI.Controllers
         {
             try
             {
-                var response = Mapper.Map<VehicleMakeViewModel>(await VehicleModelService.GetAsync<IVehicleMakeDomainModel>(Id));
+                var response = Mapper.Map<VehicleModelViewModel>(await VehicleModelService.GetAsync<IVehicleModelDomainModel>(Id));
                 return Request.CreateResponse(HttpStatusCode.OK, response);
             }
             catch (Exception e)
@@ -54,12 +54,12 @@ namespace Project.MVC.WebAPI.Controllers
 
         [HttpPost]
         [Route("add")]
-        public async Task<HttpResponseMessage> AddVehMake(VehicleMakeViewModel AddObj)
+        public async Task<HttpResponseMessage> AddVehModel(VehicleModelViewModel AddObj)
         {
             try
             {
-                AddObj.Id = Guid.NewGuid();
-                var response = await VehicleModelService.AddAsync(Mapper.Map<IVehicleMakeDomainModel>(AddObj));
+                AddObj.VehicleModelId = Guid.NewGuid();
+                var response = await VehicleModelService.AddAsync(Mapper.Map<IVehicleModelDomainModel>(AddObj));
                 return Request.CreateResponse(HttpStatusCode.OK, response);
             }
             catch (Exception e)
@@ -70,11 +70,11 @@ namespace Project.MVC.WebAPI.Controllers
 
         [HttpPut]
         [Route("update")]
-        public async Task<HttpResponseMessage> UpdateVehMake(VehicleMakeViewModel AddObj, Guid Id)
+        public async Task<HttpResponseMessage> UpdateVehModel(VehicleModelViewModel AddObj, Guid Id)
         {
             try
             {
-                VehicleMakeViewModel find = Mapper.Map<VehicleMakeViewModel>(await VehicleModelService.GetAsync<IVehicleMakeDomainModel>(Id));
+                VehicleModelViewModel find = Mapper.Map<VehicleModelViewModel>(await VehicleModelService.GetAsync<IVehicleModelDomainModel>(Id));
 
                 if (AddObj.Name == null || AddObj.Abrv == null)
                 {
@@ -85,7 +85,7 @@ namespace Project.MVC.WebAPI.Controllers
                     find.Name = AddObj.Name;
                     find.Abrv = AddObj.Abrv;
                 }
-                var response = await VehicleModelService.UpdateAsync(Mapper.Map<IVehicleMakeDomainModel>(AddObj));
+                var response = await VehicleModelService.UpdateAsync(Mapper.Map<IVehicleModelDomainModel>(AddObj));
                 return Request.CreateResponse(HttpStatusCode.OK, response);
             }
             catch (Exception e)
@@ -96,11 +96,11 @@ namespace Project.MVC.WebAPI.Controllers
 
         [HttpDelete]
         [Route("delete")]
-        public async Task<HttpResponseMessage> DeleteVehMake(Guid Id)
+        public async Task<HttpResponseMessage> DeleteVehModel(Guid Id)
         {
             try
             {
-                var response = await VehicleModelService.DeleteAsync<IVehicleMakeDomainModel>(Id);
+                var response = await VehicleModelService.DeleteAsync<IVehicleModelDomainModel>(Id);
                 return Request.CreateResponse(HttpStatusCode.OK, response);
             }
             catch (Exception e)

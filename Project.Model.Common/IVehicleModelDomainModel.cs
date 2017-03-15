@@ -8,7 +8,7 @@ namespace Project.Model.Common
 {
    public interface IVehicleModelDomainModel
     {
-         Guid Id { get; set; }
+         Guid VehicleModelId { get; set; }
          Guid VehicleMakeId { get; set; }
          String Name { get; set; }
          String Abrv { get; set; }

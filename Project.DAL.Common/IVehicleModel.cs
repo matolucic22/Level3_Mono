@@ -8,7 +8,7 @@ namespace Project.DAL.Common
 {
    public interface IVehicleModel
     {
-        Guid Id { get; set; }
+        Guid VehicleModelId { get; set; }
         Guid VehicleMakeId { get; set; }
         String Name { get; set; }
         String Abrv { get; set; }

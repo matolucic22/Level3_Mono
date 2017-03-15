@@ -10,9 +10,9 @@ namespace Project.Service
 {
     public class VehicleModelService : IVehicleModelService
     {
-        private IVehicleModelGenericReporsitory _VehicleModelGenericReporsitory;
+        protected IVehicleModelGenericReporsitory _VehicleModelGenericReporsitory { get; set; }
 
-        private VehicleModelService(IVehicleModelGenericReporsitory VehicleModelGenericReporsitory)
+        public VehicleModelService(IVehicleModelGenericReporsitory VehicleModelGenericReporsitory)
         {
             this._VehicleModelGenericReporsitory = VehicleModelGenericReporsitory;
         }
@@ -29,7 +29,8 @@ namespace Project.Service
 
         public async Task<IEnumerable<IVehicleModelDomainModel>> GetAllAsync<IVehicleModelDomainModel>()
         {
-            return await _VehicleModelGenericReporsitory.GetAllAsync<IVehicleModelDomainModel>();
+            var asd = _VehicleModelGenericReporsitory.GetAllAsync<IVehicleModelDomainModel>();
+            return await asd; /*_VehicleModelGenericReporsitory.GetAllAsync<IVehicleModelDomainModel>();*/
         }
 
         public async Task<IVehicleModelDomainModel> GetAsync<IVehicleModelDomainModel>(Guid id)

@@ -59,7 +59,7 @@ namespace Project.MVC.WebAPI.Controllers
         {
             try
             {
-                AddObj.Id = Guid.NewGuid();
+                AddObj.VehicleMakeId = Guid.NewGuid();
                 var response = await VehicleMakeService.AddAsync(Mapper.Map<IVehicleMakeDomainModel>(AddObj));
                 return Request.CreateResponse(HttpStatusCode.OK, response);
             }

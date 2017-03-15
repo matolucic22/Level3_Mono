@@ -13,56 +13,24 @@ namespace Project.Model
     {
         public string Abrv
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
+            get; set;
         }
 
-        public Guid Id
+        public Guid VehicleModelId
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
+            get; set;
         }
 
         public string Name
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
+            get;set;
         }
 
         public Guid VehicleMakeId
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
+            get;set;
         }
-        public virtual VehicleMakeDomainModel VehicleMakesDomainModel { get; set; }//poziva jedan make di je npr id=1; - 1 make ima vise modela. Zato što svaki model ima 1 make 
+        public virtual IVehicleMakeDomainModel VehicleMake { get; set; }//poziva jedan make di je npr id=1; - 1 make ima vise modela. Zato što svaki model ima 1 make 
 
     }
 }

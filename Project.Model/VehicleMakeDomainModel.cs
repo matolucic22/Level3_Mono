@@ -10,11 +10,11 @@ namespace Project.Model
 {
     public class VehicleMakeDomainModel:IVehicleMakeDomainModel
     {
-            public Guid Id { get; set; }
+            public Guid VehicleMakeId { get; set; }
             public String Name { get; set; }
             public String Abrv { get; set; }
 
-            public virtual ICollection<VehicleModelDomainModel> VehicleModelsDomainModel { get; set; }//1 make ima vise modela
+            public virtual ICollection<IVehicleModelDomainModel> VehicleModels { get; set; }//1 make ima vise modela
         
     }
 }

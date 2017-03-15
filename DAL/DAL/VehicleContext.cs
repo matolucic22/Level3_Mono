@@ -15,8 +15,8 @@ namespace DAL
         public VehicleContext() : base("VehicleContext")
         {
         }
-         public DbSet<VehicleModel> VehicleModels { get; set; }
-         public DbSet<VehicleMake> VehicleMakes { get; set; }
+         public DbSet<VehicleModel> VehicleModel { get; set; }
+         public DbSet<VehicleMake> VehicleMake { get; set; }
        protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
