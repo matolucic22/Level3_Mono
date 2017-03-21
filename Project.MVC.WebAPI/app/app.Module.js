@@ -2,21 +2,22 @@
 
 routerApp.config(function($stateProvider, $urlRouterProvider)//.otherwise-default route
 {
-    $urlRouterProvider.otherwise('/VehicleMake');
+    $urlRouterProvider.otherwise('/vehicleMake');
 
-    $stateProvider.state('VehicleMake', {//ui-sref=VhicleMake-->the name of state that we want to refer
-        url: '/VehicleMake',//URL that we want to navigate to--when click on VehicleMake we activate this
+    $stateProvider.state('vehicleMake', {//ui-sref=VhicleMake-->the name of state that we want to refer
+        url: '/vehicleMake',//URL that we want to navigate to--when click on VehicleMake we activate this
         controller: 'VehicleMakeController',//controller iz kojeg uzima?
         views: {
             "root": {
                 templateUrl: 'app/Components/VehicleMake/Views/IndexVehMake.html'
             }
         }
-    }).state('VehicleMakeAdd', {
-        url: '/addVehicleMake',
+    }).state('vehicleMakeAdd', {
+        url: '/vehicleMakeAdd',
+        controller: 'VehicleMakeAddController',
         views: {
             "root": {
-                
+                templateUrl: 'app/Components/VehicleMake/Views/VehicleMakeAdd.html'
             }
         }
     })
