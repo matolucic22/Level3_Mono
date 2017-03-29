@@ -234,9 +234,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.Module.js" />
-    <Content Include="app\Components\VehicleMake\Controllers\AddVehicleMakeController.js" />
+    <Content Include="app\Components\VehicleMake\Controllers\VehicleMakeAddController.js" />
     <Content Include="app\Components\VehicleMake\Controllers\VehicleMakeController.js" />
     <Content Include="app\Components\VehicleMake\Views\IndexVehMake.html" />
+    <Content Include="app\Components\VehicleMake\Views\VehicleMakeAdd.html" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\Angular\Service.js" />
     <Content Include="Content\bootstrap.css" />
