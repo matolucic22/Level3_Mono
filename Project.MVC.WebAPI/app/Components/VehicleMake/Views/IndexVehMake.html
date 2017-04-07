@@ -1,0 +1,38 @@
+﻿<div class="container" ng-controller="VehicleMakeController">
+    <h1>Vehicle Make</h1>
+  <div style="text-align: right">
+        <a ui-sref="vehicleMakeAdd">Create Vehicle Make</a>
+    </div>
+    <!--
+    <form class="form-inline">
+        <div class="form-group">
+            <label>Search</label>
+            <input type="text" ng-model="search" class="form-control" placeholder="Search">
+        </div>
+    </form>-->
+    <div style="text-align:right">
+        <a ui-sref="VehicleMakeAdd">Add to Vehicle make</a>
+    </div>
+
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Abrv</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="make in makes">
+                <td>{{make.VehicleMakeId}}</td>
+                <td>{{make.Name}}</td>
+                <td>{{make.Abrv}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <!--<button ui-sref="vehicleModel" class="btn btn-danger navbar-btn">
+                  Vehicle Model
+    </button>-->
+</div>

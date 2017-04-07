@@ -11,8 +11,20 @@ namespace Project.MVC.WebAPI
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/angularjs").Include(//DODATI JOS STVARI-kod pere ima i pagation
+                        "~/Scripts/angular.js", 
+                        "~/Scripts/angular-ui-router.js",
+                        "~/Scripts/dirPagination.js"));
+
+
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
+
+            bundles.Add(new ScriptBundle("~/bundles/vehicleApp").Include(
+                "~/app/app.Module.js", 
+                "~/app/Components/VehicleMake/Controllers/*Controller.js", 
+                "~/app/Components/VehicleModel/Controllers/*Controller.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 

@@ -1,0 +1,16 @@
+﻿<div class="container" ng-controller="VehicleMakeAddController">
+    <h2 style="text-align:center">Add Vehicle Make</h2>
+    <form name="vmkAddForm">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" ng-model="Name" placeholder="Name"/>
+        </div>
+        <br />
+        <div class="form-group">
+            <label for="abrv">Abrv:</label>
+            <input type="text" class="form-control" id="abrv" ng-model="Abrv" placeholder="Abrv" />
+        </div>
+        <br /><br />
+        <button type="submit" class="btn btn-default" ng-click="addVehicleMake()">Spremi</button>
+    </form>
+</div>
